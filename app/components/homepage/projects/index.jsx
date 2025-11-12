@@ -1,33 +1,32 @@
-"use client";
-import React, { useState, useMemo, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { FaExternalLinkAlt, FaCode, FaPlay, FaTimes, FaEye } from "react-icons/fa";
-import { projectsData } from "@/utils/data/projects-data";
+"use client"
 
-export default function Projects() {
-  const [filter, setFilter] = useState("all");
-  const [active, setActive] = useState(null); // selected project for modal
+import { useState, useMemo, useEffect } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaExternalLinkAlt, FaCode, FaPlay, FaTimes, FaEye } from 'react-icons/fa';
+import { projectsData } from '@/utils/data/projects-data';
 
-  const filters = ["all", "images", "videos", "websites"];
+export default function Projects(){
+  const [filter, setFilter] = useState('all')
+  const [active, setActive] = useState(null) // selected project for modal
+
+  const filters = ['all','images','videos','websites']
 
   const items = useMemo(() => {
-    if (filter === "all") return projectsData;
-    if (filter === "images") return projectsData.filter(
-      p => (typeof p.image?.src === "string" && p.image?.src.length > 0) || (typeof p.img === "string" && p.img.length > 0)
-    );
-    if (filter === "videos") return projectsData.filter(p => typeof p.video === "string" && p.video.length > 0);
-    if (filter === "websites") return projectsData.filter(p => typeof p.demo === "string" && p.demo.length > 0);
-    return projectsData;
-  }, [filter]);
+    if(filter === 'all') return projectsData
+    if(filter === 'images') return projectsData.filter(p => p.image || p.img)
+    if(filter === 'videos') return projectsData.filter(p => p.video)
+    if(filter === 'websites') return projectsData.filter(p => p.demo)
+    return projectsData
+  }, [filter])
 
   useEffect(() => {
-    function onKey(e) {
-      if (e.key === "Escape") setActive(null);
+    function onKey(e){
+      if(e.key === 'Escape') setActive(null)
     }
-    if (active) window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [active]);
+    if(active) window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [active])
 
   return (
     <section id="projects" className="relative z-50 my-12 lg:my-24">
@@ -43,8 +42,8 @@ export default function Projects() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex gap-2">
             {filters.map(f => (
-              <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1 rounded-full text-sm ${filter === f ? "bg-violet-600 text-white" : "bg-white/5 text-gray-200"}`}>
-                {f.charAt(0).toUpperCase() + f.slice(1)}
+              <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1 rounded-full text-sm ${filter===f? 'bg-violet-600 text-white' : 'bg-white/5 text-gray-200'}`}>
+                {f.charAt(0).toUpperCase()+f.slice(1)}
               </button>
             ))}
           </div>
@@ -71,16 +70,16 @@ export default function Projects() {
                 </div>
                 <div className="absolute right-4 top-4 flex gap-2 z-20 opacity-0 group-hover:opacity-100 transition">
                   {/* view button opens modal without triggering parent onClick */}
-                  <button aria-label="View" onClick={e => { e.stopPropagation(); setActive(p); }} className="px-2 py-1 rounded bg-white/6 text-xs inline-flex items-center gap-2"><FaEye /> View</button>
-                  {p.demo && <Link href={p.demo} target="_blank" onClick={e => e.stopPropagation()} className="px-2 py-1 rounded bg-violet-600 text-white text-xs inline-flex items-center gap-2"><FaExternalLinkAlt /> Live</Link>}
-                  {p.code && <Link href={p.code} target="_blank" onClick={e => e.stopPropagation()} className="px-2 py-1 rounded bg-white/6 text-xs inline-flex items-center gap-2"><FaCode /> Code</Link>}
+                  <button aria-label="View" onClick={(e)=>{e.stopPropagation(); setActive(p)}} className="px-2 py-1 rounded bg-white/6 text-xs inline-flex items-center gap-2"><FaEye /> View</button>
+                  {p.demo && <Link href={p.demo} target="_blank" onClick={(e)=>e.stopPropagation()} className="px-2 py-1 rounded bg-violet-600 text-white text-xs inline-flex items-center gap-2"><FaExternalLinkAlt /> Live</Link>}
+                  {p.code && <Link href={p.code} target="_blank" onClick={(e)=>e.stopPropagation()} className="px-2 py-1 rounded bg-white/6 text-xs inline-flex items-center gap-2"><FaCode /> Code</Link>}
                 </div>
               </div>
 
               <div className="p-4 bg-[#061026]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    {(p.tools || []).slice(0, 3).map((t, i) => (
+                    {(p.tools || []).slice(0,3).map((t, i) => (
                       <span key={i} className="text-xs bg-white/6 px-2 py-1 rounded">{t}</span>
                     ))}
                   </div>
@@ -121,5 +120,5 @@ export default function Projects() {
         </div>
       )}
     </section>
-  );
+  )
 }
