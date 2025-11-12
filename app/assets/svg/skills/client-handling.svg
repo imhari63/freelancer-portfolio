@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <circle cx="50" cy="30" r="20" stroke="black" stroke-width="4" />
+    <rect x="30" y="50" width="40" height="30" stroke="black" stroke-width="4" />
+    <text x="50" y="95" text-anchor="middle" font-size="12" fill="black">Client</text>
+</svg>

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <path d="M20 80 Q50 20 80 80" stroke="black" stroke-width="4" fill="none" />
+    <text x="50" y="90" text-anchor="middle" font-size="12" fill="black">Adapt</text>
+</svg>

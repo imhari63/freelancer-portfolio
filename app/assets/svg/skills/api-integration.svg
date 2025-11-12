@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="4" />
+    <line x1="30" y1="50" x2="70" y2="50" stroke="black" stroke-width="4" />
+    <line x1="50" y1="30" x2="50" y2="70" stroke="black" stroke-width="4" />
+    <text x="50" y="90" text-anchor="middle" font-size="12" fill="black">API</text>
+</svg>

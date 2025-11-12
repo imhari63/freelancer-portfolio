@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+    <circle cx="30" cy="50" r="20" stroke="black" stroke-width="4" />
+    <circle cx="70" cy="50" r="20" stroke="black" stroke-width="4" />
+    <text x="50" y="90" text-anchor="middle" font-size="12" fill="black">Team</text>
+</svg>
