@@ -1,5 +1,3 @@
-It’s branded to your GitHub username imhari63, optimized for visitors and clients, and ready to copy-paste straight into your repo 👇
-
 <p align="center">
   <img src="./public/image/portfolio.gif" alt="Hariharan R Portfolio" height="120" />
 </p>
